@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact – BR Airborne</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>BR Airborne</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Services</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="about-pilot">
+        <h2>Meet Your Pilot</h2>
+        <p>
+          Brett is an industry veteran with 25 years of flying and air traffic
+          control experience.
+        </p>
+        <ul>
+          <li>Graduate of the Royal Australian Airforce Military College</li>
+          <li>Commercial pilot with Canadian and overseas experience</li>
+          <li>Tower and Terminal controller in three countries</li>
+          <li>Advanced Drone pilot</li>
+        </ul>
+      </section>
+
+      <section id="contact-form">
+        <h2>Contact Us</h2>
+        <!-- Note: GitHub Pages does not support server-side form processing.
+             To process form submissions, consider using a service like Formspree.
+             Replace {your_form_id} with your actual Formspree ID if you use it. -->
+        <form
+          action="https://formspree.io/f/{your_form_id}"
+          method="POST"
+          novalidate
+        >
+          <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="firstName" required />
+          </div>
+
+          <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lastName" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="_replyto" required />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 BR Airborne. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
