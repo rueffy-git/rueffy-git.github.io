@@ -11,58 +11,56 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* Contact section with background image */
+      /* 
+        .contact-section uses a padding-top hack to create a container with a fixed 
+        aspect ratio. Adjust the 40% value below (which represents the height relative to the width)
+        to control the vertical size on desktop.
+      */
       .contact-section {
         position: relative;
+        width: 100%;
+        padding-top: 40%; /* This sets the height to 40% of the width; adjust as needed */
         background: url('br.jpg') no-repeat center center;
-        /* For desktop, fill the entire container */
-        background-size: cover;
-        padding: 2rem 0;
+        background-size: 100% auto; /* Stretch horizontally to fill width */
       }
-      /* On smaller screens, show the full image without cropping */
-      @media (max-width: 768px) {
-        .contact-section {
-          background-size: 100% auto;
-        }
-      }
-      /* Semi-transparent overlay */
+      /* Semi-transparent overlay to improve text readability */
       .contact-section::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
+        width: 100%;
+        height: 100%;
         background: rgba(255, 255, 255, 0.6);
         z-index: 1;
       }
-      /* Flex container for the content over the background */
+      /* 
+         .contact-content is absolutely positioned to sit on top of the background.
+         It is set to display as a flex container to place the text (left) and form (right) side-by-side.
+      */
       .contact-content {
-        position: relative;
-        z-index: 2; /* ensure it sits above the overlay */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 2rem;
-        /* Optionally, if you want the section to have a fixed minimum height */
-        min-height: 80vh;
+        width: 90%;
+        max-width: 1000px;
+        z-index: 2;
       }
-      /* Left column: Text content */
       .contact-text {
         flex: 1;
-        max-width: 45%;
-        padding: 1rem;
+        margin-right: 2rem;
         font-family: 'Roboto Slab', serif;
         font-size: 1.5rem;
         color: #333;
       }
-      /* Right column: Contact form */
       .contact-form {
         flex: 1;
-        max-width: 45%;
-        padding: 1rem;
       }
-      /* Responsive adjustments */
+      /* Responsive adjustments for smaller screens */
       @media (max-width: 768px) {
         .contact-content {
           flex-direction: column;
@@ -70,8 +68,8 @@
         }
         .contact-text,
         .contact-form {
+          margin: 0;
           max-width: 100%;
-          margin-bottom: 1rem;
         }
       }
     </style>
@@ -90,10 +88,10 @@
     </header>
 
     <main class="container">
-      <!-- Contact Section with responsive background image -->
-      <section id="contact-section" class="contact-section">
+      <!-- The contact section with the background image -->
+      <section class="contact-section">
         <div class="contact-content">
-          <!-- Left: Text content -->
+          <!-- Left column: Text -->
           <div class="contact-text">
             <h2>Meet Your Pilot</h2>
             <p>
@@ -107,7 +105,7 @@
               <li>Advanced Drone pilot</li>
             </ul>
           </div>
-          <!-- Right: Contact Form -->
+          <!-- Right column: Contact Form -->
           <div class="contact-form">
             <h2>Contact Us</h2>
             <!-- Note: GitHub Pages does not support server-side processing.
