@@ -11,10 +11,10 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* -------------------------------
+      /* ---------------------------
          Desktop Styles
-      ------------------------------- */
-      /* Contact section for desktop */
+      --------------------------- */
+      /* Desktop: background image is an <img> element with an overlay */
       .contact-section {
         position: relative;
         width: 100vw;
@@ -22,13 +22,11 @@
         overflow: hidden;
         margin-left: calc(50% - 50vw); /* Full-bleed */
       }
-      /* Background image as an <img> element */
       .contact-bg {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-      /* Semi-transparent overlay */
       .contact-overlay {
         position: absolute;
         top: 0;
@@ -38,10 +36,9 @@
         background: rgba(255, 255, 255, 0.6);
         z-index: 1;
       }
-      /* Content container positioned above background */
       .contact-content {
         position: absolute;
-        top: 10%; /* Adjust to move content higher or lower on desktop */
+        top: 10%; /* Adjust this value to move content higher or lower */
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;
@@ -70,7 +67,7 @@
       .contact-form {
         flex: 1;
       }
-      /* Form styling */
+      /* Basic form styling (applies to both desktop and mobile) */
       .form-group {
         margin-bottom: 1rem;
       }
@@ -97,26 +94,29 @@
         background: #555;
       }
       
-      /* -------------------------------
+      /* ---------------------------
          Mobile Styles (max-width: 768px)
-      ------------------------------- */
+      --------------------------- */
       @media (max-width: 768px) {
-        /* Instead of fixed height and absolute positioning, allow the section to expand */
+        /* Instead of using the absolutely positioned <img> and overlay,
+           we use a CSS background with a linear gradient overlay on the container */
         .contact-section {
           position: relative;
           width: 100%;
           height: auto;
           margin-left: 0;
           padding: 2rem 0;
-          background: url('br.jpg') no-repeat center center;
+          background: 
+            linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+            url('br.jpg') no-repeat center center;
           background-size: cover;
         }
-        /* Hide the <img> background and overlay on mobile since we use a CSS background */
+        /* Hide the desktop image and overlay elements on mobile */
         .contact-bg,
         .contact-overlay {
           display: none;
         }
-        /* Make the content flow normally */
+        /* Let the content flow normally */
         .contact-content {
           position: relative;
           top: 0;
@@ -150,9 +150,8 @@
 
     <!-- Contact Section -->
     <section class="contact-section">
-      <!-- Desktop background image -->
+      <!-- Desktop background image and overlay -->
       <img src="br.jpg" alt="Background" class="contact-bg" />
-      <!-- Desktop overlay -->
       <div class="contact-overlay"></div>
       <!-- Overlaid content -->
       <div class="contact-content">
