@@ -5,6 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BR Airborne – Services</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Base reset and typography */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        color: #333;
+      }
+      
+      /* Header styling */
+      header {
+        background: #333;
+        color: #fff;
+        padding: 1rem 0;
+      }
+      header .container {
+        width: 90%;
+        max-width: 1000px;
+        margin: auto;
+      }
+      header h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+      }
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.25rem 0.5rem;
+      }
+      nav ul li a.active,
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+      
+      /* Main container */
+      main.container {
+        width: 90%;
+        max-width: 1000px;
+        margin: auto;
+        padding: 2rem 0;
+      }
+      
+      /* Three-column layout */
+      .three-columns {
+        display: flex;
+        gap: 1rem;
+        justify-content: space-between;
+      }
+      .column {
+        flex: 1;
+        text-align: center;
+        padding: 1rem;
+      }
+      
+      /* Images styled as squares with rounded edges */
+      .column img {
+        width: 100%;
+        max-width: 250px;  /* Adjust maximum width as needed */
+        /* The following ensures the image stays square.
+           If the browser supports the aspect-ratio property, it is used: */
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 1rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .column h2 {
+        font-size: 1.5rem;
+        color: #444;
+        margin-bottom: 0.5rem;
+      }
+      .column p {
+        font-size: 1rem;
+        color: #666;
+      }
+      
+      /* Footer styling */
+      footer {
+        background: #f4f4f4;
+        text-align: center;
+        padding: 1rem 0;
+        border-top: 1px solid #ddd;
+        margin-top: 2rem;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -18,50 +115,36 @@
         </nav>
       </div>
     </header>
-
+    
     <main class="container">
-      <section id="instrument-ratings">
-        <h2>Instrument Ratings</h2>
-        <p>
-          Single or multi-engine instruction towards your instrument rating
-          from a pilot who works and flies in the IFR system daily.
-        </p>
-      </section>
-
-      <section id="contract-pilot">
-        <h2>Contract Pilot and Coaching</h2>
-        <p>
-          Short duration/short notice pilot contracts, ferry flights, and pilot
-          coaching services designed to help you learn to work effectively with
-          ATC.
-        </p>
-      </section>
-
-      <section id="drone-survey">
-        <h2>Drone and Survey Operations</h2>
-        <p>
-          We also offer advanced drone and survey operations for various
-          projects.
-        </p>
-      </section>
-
-      <section id="gallery">
-        <h2>Gallery</h2>
-        <figure>
-          <img src="gplane.JPG" alt="Glider Plane" />
-          <figcaption>Glider Plane</figcaption>
-        </figure>
-        <figure>
+      <div class="three-columns">
+        <!-- First Column -->
+        <div class="column">
           <img src="ipanel.jpg" alt="Instrument Panel" />
-          <figcaption>Instrument Panel</figcaption>
-        </figure>
-        <figure>
+          <h2>Instrument Ratings</h2>
+          <p>
+            Single or multi-engine instruction towards your instrument rating from a pilot who works and flies in the IFR system daily.
+          </p>
+        </div>
+        <!-- Second Column -->
+        <div class="column">
+          <img src="gplane.jpg" alt="Glider Plane" />
+          <h2>Contract Pilot and Coaching</h2>
+          <p>
+            Short duration/short notice pilot contracts, ferry flights, and pilot coaching services designed to help you learn to work effectively with ATC.
+          </p>
+        </div>
+        <!-- Third Column -->
+        <div class="column">
           <img src="drone.jpg" alt="Drone Operation" />
-          <figcaption>Drone Operation</figcaption>
-        </figure>
-      </section>
+          <h2>Drone and Survey Operations</h2>
+          <p>
+            We also offer advanced drone and survey operations for various projects.
+          </p>
+        </div>
+      </div>
     </main>
-
+    
     <footer>
       <div class="container">
         <p>&copy; 2025 BR Airborne. All rights reserved.</p>
