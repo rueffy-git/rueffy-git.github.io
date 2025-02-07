@@ -14,7 +14,6 @@
       /* ---------------------------
          Desktop Styles
       --------------------------- */
-      /* Desktop: background image is an <img> element with an overlay */
       .contact-section {
         position: relative;
         width: 100vw;
@@ -67,7 +66,6 @@
       .contact-form {
         flex: 1;
       }
-      /* Basic form styling (applies to both desktop and mobile) */
       .form-group {
         margin-bottom: 1rem;
       }
@@ -98,8 +96,7 @@
          Mobile Styles (max-width: 768px)
       --------------------------- */
       @media (max-width: 768px) {
-        /* Instead of using the absolutely positioned <img> and overlay,
-           we use a CSS background with a linear gradient overlay on the container */
+        /* Use a CSS background with a gradient overlay on mobile */
         .contact-section {
           position: relative;
           width: 100%;
@@ -111,12 +108,12 @@
             url('br.jpg') no-repeat center center;
           background-size: cover;
         }
-        /* Hide the desktop image and overlay elements on mobile */
+        /* Hide desktop-specific background image and overlay */
         .contact-bg,
         .contact-overlay {
           display: none;
         }
-        /* Let the content flow normally */
+        /* Position content normally */
         .contact-content {
           position: relative;
           top: 0;
@@ -125,22 +122,30 @@
           width: 90%;
           margin: 0 auto;
           display: block;
-          text-align: center;
+          /* Remove global centering so that we can set specific text alignment for child elements */
+          text-align: initial;
         }
-        .contact-text,
-        .contact-form {
+        /* Left column: Ensure text is left-justified */
+        .contact-text {
           margin-bottom: 1rem;
           max-width: 100%;
+          text-align: left;
         }
-        /* Reduce font sizes for mobile */
-        .contact-text {
-          font-size: 1.2rem;
+        /* Center only the heading inside contact-text */
+        .contact-text h2 {
+          text-align: center;
+          margin-bottom: 1rem;
         }
         .contact-text .intro {
           font-size: 1.4rem;
         }
         .contact-text ul {
           font-size: 1rem;
+          margin-left: 1.5rem;
+        }
+        .contact-form {
+          margin-bottom: 1rem;
+          max-width: 100%;
         }
       }
     </style>
