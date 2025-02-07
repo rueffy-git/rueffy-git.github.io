@@ -26,7 +26,7 @@
       }
       header .container {
         width: 90%;
-        max-width: 1000px;
+        max-width: 1200px;
         margin: auto;
       }
       header h1 {
@@ -51,7 +51,7 @@
       /* Main container */
       main.container {
         width: 90%;
-        max-width: 1000px;
+        max-width: 1200px;  /* Increased max-width */
         margin: auto;
         padding: 2rem 0;
       }
@@ -60,10 +60,10 @@
       .three-columns {
         display: flex;
         gap: 1rem;
-        justify-content: space-between;
+        justify-content: center;
       }
       .column {
-        flex: 1;
+        width: 375px;  /* Fixed width for each column */
         text-align: center;
         padding: 1rem;
       }
@@ -74,7 +74,7 @@
       }
       .column img {
         width: 100%;
-        max-width: 600px; /* 50% larger than previous 250px */
+        /* With the column fixed to 375px, the image will display at 375px wide */
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 15px;
@@ -111,7 +111,8 @@
           align-items: center;
         }
         .column {
-          max-width: 100%;
+          width: 100%;
+          max-width: 375px;
           margin-bottom: 1rem;
         }
       }
@@ -136,7 +137,6 @@
         <div class="column">
           <figure>
             <img src="ipanel.jpg" alt="Instrument Panel" />
-            <!-- Optional figcaption can be added here if desired -->
           </figure>
           <h2>Instrument Ratings</h2>
           <p>
@@ -157,11 +157,10 @@
         <div class="column">
           <figure>
             <img src="drone.jpg" alt="Drone Operation" />
-            <!-- Optional figcaption can be added here if desired -->
           </figure>
           <h2>Drone and Survey Operations</h2>
           <p>
-            Transport Canada Advanced RPAS pilot with industry experience and equipment.
+            Transport Canada Advanced RPAS pilot with industry experience and equipment. 
           </p>
         </div>
       </div>
