@@ -6,7 +6,7 @@
     <title>BR Airborne – Services</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* Base reset and typography */
+      /* Basic reset and typography */
       * {
         box-sizing: border-box;
         margin: 0;
@@ -68,19 +68,21 @@
         padding: 1rem;
       }
       
-      /* Images styled as squares with rounded edges */
+      /* Style images as squares with rounded edges and increased size */
+      .column figure {
+        margin: 0 auto 1rem;
+      }
       .column img {
         width: 100%;
-        max-width: 250px;  /* Adjust maximum width as needed */
-        /* The following ensures the image stays square.
-           If the browser supports the aspect-ratio property, it is used: */
+        max-width: 375px; /* 50% larger than previous 250px */
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 15px;
-        margin-bottom: 1rem;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+      }
+      .column figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: #777;
       }
       
       .column h2 {
@@ -101,6 +103,18 @@
         border-top: 1px solid #ddd;
         margin-top: 2rem;
       }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .three-columns {
+          flex-direction: column;
+          align-items: center;
+        }
+        .column {
+          max-width: 100%;
+          margin-bottom: 1rem;
+        }
+      }
     </style>
   </head>
   <body>
@@ -120,7 +134,10 @@
       <div class="three-columns">
         <!-- First Column -->
         <div class="column">
-          <img src="ipanel.jpg" alt="Instrument Panel" />
+          <figure>
+            <img src="ipanel.jpg" alt="Instrument Panel" />
+            <!-- Optional figcaption can be added here if desired -->
+          </figure>
           <h2>Instrument Ratings</h2>
           <p>
             Single or multi-engine instruction towards your instrument rating from a pilot who works and flies in the IFR system daily.
@@ -128,7 +145,10 @@
         </div>
         <!-- Second Column -->
         <div class="column">
-          <img src="gplane.jpg" alt="Glider Plane" />
+          <figure>
+            <img src="gplane.jpg" alt="Green Aircraft" />
+            <figcaption>Green Aircraft</figcaption>
+          </figure>
           <h2>Contract Pilot and Coaching</h2>
           <p>
             Short duration/short notice pilot contracts, ferry flights, and pilot coaching services designed to help you learn to work effectively with ATC.
@@ -136,7 +156,10 @@
         </div>
         <!-- Third Column -->
         <div class="column">
-          <img src="drone.jpg" alt="Drone Operation" />
+          <figure>
+            <img src="drone.jpg" alt="Drone Operation" />
+            <!-- Optional figcaption can be added here if desired -->
+          </figure>
           <h2>Drone and Survey Operations</h2>
           <p>
             We also offer advanced drone and survey operations for various projects.
