@@ -17,15 +17,15 @@
         width: 100vw;
         height: 75vh; /* Fixed height of 75vh */
         overflow: hidden;
-        margin-left: calc(50% - 50vw); /* Ensures the section spans the full viewport width */
+        margin-left: calc(50% - 50vw); /* Ensure the section spans the full viewport width */
       }
-      /* Background image that fills the container and crops top/bottom as needed */
+      /* Background image fills container, cropping top/bottom if needed */
       .contact-bg {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-      /* Semi-transparent overlay for better text readability */
+      /* Semi-transparent overlay for text readability */
       .contact-overlay {
         position: absolute;
         top: 0;
@@ -35,7 +35,7 @@
         background: rgba(255, 255, 255, 0.6);
         z-index: 1;
       }
-      /* Overlaid content container positioned near the top of the section */
+      /* Content container positioned near the top of the background */
       .contact-content {
         position: absolute;
         top: 10%; /* Adjust this value to move the content higher or lower */
@@ -62,7 +62,7 @@
         font-weight: 700;
         margin-bottom: 1rem;
       }
-      /* Style for the bullet list (slightly smaller) */
+      /* Style for the bullet list */
       .contact-text ul {
         font-size: 1.3rem;
         margin-left: 1.5rem;
@@ -126,13 +126,13 @@
       </div>
     </header>
 
-    <!-- Contact Section with the background image -->
+    <!-- Contact Section with background image -->
     <section class="contact-section">
-      <!-- Background image element -->
+      <!-- Background image -->
       <img src="br.jpg" alt="Background" class="contact-bg" />
-      <!-- Overlay -->
+      <!-- Semi-transparent overlay -->
       <div class="contact-overlay"></div>
-      <!-- Overlaid content: text (left) and form (right) -->
+      <!-- Overlaid content: text and form -->
       <div class="contact-content">
         <!-- Left column: Text -->
         <div class="contact-text">
@@ -150,9 +150,8 @@
         <!-- Right column: Contact Form -->
         <div class="contact-form">
           <h2>Contact Brett</h2>
-          <!-- Note: GitHub Pages does not support server‑side processing.
-               Use a service like Formspree; replace {your_form_id} with your actual Formspree ID. -->
-          <form action="https://formspree.io/f/{your_form_id}" method="POST" novalidate>
+          <!-- Using mailto: to send email to rueffy@hotmail.com -->
+          <form action="mailto:rueffy@hotmail.com" method="post" enctype="text/plain" novalidate>
             <div class="form-group">
               <label for="fname">First Name:</label>
               <input type="text" id="fname" name="firstName" required />
