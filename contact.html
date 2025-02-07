@@ -9,47 +9,47 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700&display=swap"
     />
+    <!-- You can keep a separate global stylesheet if desired -->
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* 
-        .contact-section uses a padding-top hack to create a container with a fixed 
-        aspect ratio. Adjust the 40% value below (which represents the height relative to the width)
-        to control the vertical size on desktop.
-      */
+      /* Full-bleed section for the background image */
       .contact-section {
         position: relative;
-        width: 100%;
-        padding-top: 40%; /* This sets the height to 40% of the width; adjust as needed */
-        background: url('br.jpg') no-repeat center center;
-        background-size: 100% auto; /* Stretch horizontally to fill width */
+        width: 100vw;
+        /* This hack ensures the section spans the full viewport width */
+        margin-left: calc(50% - 50vw);
+        overflow: hidden;
       }
-      /* Semi-transparent overlay to improve text readability */
-      .contact-section::before {
-        content: "";
+      /* The background image: fills the full width and scales naturally */
+      .contact-bg {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      /* Overlay for improved text readability */
+      .contact-overlay {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        right: 0;
+        bottom: 0;
         background: rgba(255, 255, 255, 0.6);
         z-index: 1;
       }
-      /* 
-         .contact-content is absolutely positioned to sit on top of the background.
-         It is set to display as a flex container to place the text (left) and form (right) side-by-side.
-      */
+      /* Content container over the background image */
       .contact-content {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        z-index: 2;
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 90%;
         max-width: 1000px;
-        z-index: 2;
       }
+      /* Left column (text) styling */
       .contact-text {
         flex: 1;
         margin-right: 2rem;
@@ -57,10 +57,11 @@
         font-size: 1.5rem;
         color: #333;
       }
+      /* Right column (form) styling */
       .contact-form {
         flex: 1;
       }
-      /* Responsive adjustments for smaller screens */
+      /* Responsive adjustments */
       @media (max-width: 768px) {
         .contact-content {
           flex-direction: column;
@@ -70,7 +71,34 @@
         .contact-form {
           margin: 0;
           max-width: 100%;
+          margin-bottom: 1rem;
         }
+      }
+      /* Simple form styling */
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+      }
+      button[type="submit"] {
+        padding: 0.6rem 1.2rem;
+        border: none;
+        background: #333;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 2px;
+      }
+      button[type="submit"]:hover {
+        background: #555;
       }
     </style>
   </head>
@@ -87,60 +115,52 @@
       </div>
     </header>
 
-    <main class="container">
-      <!-- The contact section with the background image -->
-      <section class="contact-section">
-        <div class="contact-content">
-          <!-- Left column: Text -->
-          <div class="contact-text">
-            <h2>Meet Your Pilot</h2>
-            <p>
-              Brett is an industry veteran with 25 years of flying and air traffic
-              control experience.
-            </p>
-            <ul>
-              <li>Graduate of the Royal Australian Airforce Military College</li>
-              <li>Commercial pilot with Canadian and overseas experience</li>
-              <li>Tower and Terminal controller in three countries</li>
-              <li>Advanced Drone pilot</li>
-            </ul>
-          </div>
-          <!-- Right column: Contact Form -->
-          <div class="contact-form">
-            <h2>Contact Us</h2>
-            <!-- Note: GitHub Pages does not support server-side processing.
-                 Use a service like Formspree; replace {your_form_id} with your actual Formspree ID. -->
-            <form
-              action="https://formspree.io/f/{your_form_id}"
-              method="POST"
-              novalidate
-            >
-              <div class="form-group">
-                <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="firstName" required />
-              </div>
-
-              <div class="form-group">
-                <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lastName" required />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="_replyto" required />
-              </div>
-
-              <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-              </div>
-
-              <button type="submit">Send</button>
-            </form>
-          </div>
+    <!-- The contact section spans full width -->
+    <section class="contact-section">
+      <!-- Background image (placed as an <img> so it scales naturally) -->
+      <img src="br.jpg" alt="Background" class="contact-bg" />
+      <!-- Semi-transparent overlay -->
+      <div class="contact-overlay"></div>
+      <!-- Overlaid content: left side text, right side form -->
+      <div class="contact-content">
+        <div class="contact-text">
+          <h2>Meet Your Pilot</h2>
+          <p>
+            Brett is an industry veteran with 25 years of flying and air traffic control experience.
+          </p>
+          <ul>
+            <li>Graduate of the Royal Australian Airforce Military College</li>
+            <li>Commercial pilot with Canadian and overseas experience</li>
+            <li>Tower and Terminal controller in three countries</li>
+            <li>Advanced Drone pilot</li>
+          </ul>
         </div>
-      </section>
-    </main>
+        <div class="contact-form">
+          <h2>Contact Us</h2>
+          <!-- Note: GitHub Pages does not support server-side processing.
+               Use a service like Formspree; replace {your_form_id} with your actual Formspree ID. -->
+          <form action="https://formspree.io/f/{your_form_id}" method="POST" novalidate>
+            <div class="form-group">
+              <label for="fname">First Name:</label>
+              <input type="text" id="fname" name="firstName" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name:</label>
+              <input type="text" id="lname" name="lastName" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="_replyto" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
 
     <footer>
       <div class="container">
