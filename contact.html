@@ -11,21 +11,24 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* Full-bleed section for the background image */
+      /* -------------------------------
+         Desktop Styles
+      ------------------------------- */
+      /* Contact section for desktop */
       .contact-section {
         position: relative;
         width: 100vw;
-        height: 75vh; /* Fixed height of 75vh */
+        height: 75vh; /* Fixed height on desktop */
         overflow: hidden;
-        margin-left: calc(50% - 50vw); /* Ensure the section spans the full viewport width */
+        margin-left: calc(50% - 50vw); /* Full-bleed */
       }
-      /* Background image fills container, cropping top/bottom if needed */
+      /* Background image as an <img> element */
       .contact-bg {
         width: 100%;
         height: 100%;
         object-fit: cover;
       }
-      /* Semi-transparent overlay for text readability */
+      /* Semi-transparent overlay */
       .contact-overlay {
         position: absolute;
         top: 0;
@@ -35,10 +38,10 @@
         background: rgba(255, 255, 255, 0.6);
         z-index: 1;
       }
-      /* Content container positioned near the top of the background */
+      /* Content container positioned above background */
       .contact-content {
         position: absolute;
-        top: 10%; /* Adjust this value to move the content higher or lower */
+        top: 10%; /* Adjust to move content higher or lower on desktop */
         left: 50%;
         transform: translateX(-50%);
         z-index: 2;
@@ -48,7 +51,6 @@
         width: 90%;
         max-width: 1000px;
       }
-      /* Left column: Text styling */
       .contact-text {
         flex: 1;
         margin-right: 2rem;
@@ -56,36 +58,19 @@
         font-size: 1.5rem;
         color: #333;
       }
-      /* Distinct styling for the introductory sentence */
       .contact-text .intro {
         font-size: 1.7rem;
         font-weight: 700;
         margin-bottom: 1rem;
       }
-      /* Style for the bullet list */
       .contact-text ul {
         font-size: 1.3rem;
         margin-left: 1.5rem;
       }
-      /* Right column: Form styling */
       .contact-form {
         flex: 1;
       }
-      /* Responsive adjustments */
-      @media (max-width: 768px) {
-        .contact-content {
-          flex-direction: column;
-          text-align: center;
-          align-items: center;
-        }
-        .contact-text,
-        .contact-form {
-          margin: 0;
-          max-width: 100%;
-          margin-bottom: 1rem;
-        }
-      }
-      /* Basic form styling */
+      /* Form styling */
       .form-group {
         margin-bottom: 1rem;
       }
@@ -111,6 +96,43 @@
       button[type="submit"]:hover {
         background: #555;
       }
+      
+      /* -------------------------------
+         Mobile Styles (max-width: 768px)
+      ------------------------------- */
+      @media (max-width: 768px) {
+        /* Instead of fixed height and absolute positioning, allow the section to expand */
+        .contact-section {
+          position: relative;
+          width: 100%;
+          height: auto;
+          margin-left: 0;
+          padding: 2rem 0;
+          background: url('br.jpg') no-repeat center center;
+          background-size: cover;
+        }
+        /* Hide the <img> background and overlay on mobile since we use a CSS background */
+        .contact-bg,
+        .contact-overlay {
+          display: none;
+        }
+        /* Make the content flow normally */
+        .contact-content {
+          position: relative;
+          top: 0;
+          left: 0;
+          transform: none;
+          width: 90%;
+          margin: 0 auto;
+          display: block;
+          text-align: center;
+        }
+        .contact-text,
+        .contact-form {
+          margin-bottom: 1rem;
+          max-width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
@@ -126,15 +148,15 @@
       </div>
     </header>
 
-    <!-- Contact Section with background image -->
+    <!-- Contact Section -->
     <section class="contact-section">
-      <!-- Background image -->
+      <!-- Desktop background image -->
       <img src="br.jpg" alt="Background" class="contact-bg" />
-      <!-- Semi-transparent overlay -->
+      <!-- Desktop overlay -->
       <div class="contact-overlay"></div>
-      <!-- Overlaid content: text and form -->
+      <!-- Overlaid content -->
       <div class="contact-content">
-        <!-- Left column: Text -->
+        <!-- Left Column: Text -->
         <div class="contact-text">
           <h2>Meet Your Pilot</h2>
           <p class="intro">
@@ -147,10 +169,10 @@
             <li>Advanced Drone pilot</li>
           </ul>
         </div>
-        <!-- Right column: Contact Form -->
+        <!-- Right Column: Form -->
         <div class="contact-form">
           <h2>Contact Brett</h2>
-          <!-- Using mailto: to send email to rueffy@hotmail.com -->
+          <!-- Using mailto: so that submitting the form opens the email client -->
           <form action="mailto:rueffy@hotmail.com" method="post" enctype="text/plain" novalidate>
             <div class="form-group">
               <label for="fname">First Name:</label>
