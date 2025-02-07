@@ -11,15 +11,21 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
-      /* Contact Section with background image */
+      /* Contact section with background image */
       .contact-section {
         position: relative;
         background: url('br.jpg') no-repeat center center;
-        background-size: 100% auto;
-        /* Optional: add vertical padding so the section isn’t too cramped */
+        /* For desktop, fill the entire container */
+        background-size: cover;
         padding: 2rem 0;
       }
-      /* A semi-transparent overlay to soften the background image */
+      /* On smaller screens, show the full image without cropping */
+      @media (max-width: 768px) {
+        .contact-section {
+          background-size: 100% auto;
+        }
+      }
+      /* Semi-transparent overlay */
       .contact-section::before {
         content: "";
         position: absolute;
@@ -30,23 +36,22 @@
         background: rgba(255, 255, 255, 0.6);
         z-index: 1;
       }
-      /* Flex container for content */
+      /* Flex container for the content over the background */
       .contact-content {
         position: relative;
-        z-index: 2;
+        z-index: 2; /* ensure it sits above the overlay */
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 2rem;
-        /* If you want a fixed height for vertical centering, you can uncomment the next line */
-        /* min-height: 80vh; */
+        /* Optionally, if you want the section to have a fixed minimum height */
+        min-height: 80vh;
       }
       /* Left column: Text content */
       .contact-text {
         flex: 1;
         max-width: 45%;
         padding: 1rem;
-        /* Use the custom font and increase text size */
         font-family: 'Roboto Slab', serif;
         font-size: 1.5rem;
         color: #333;
@@ -85,7 +90,7 @@
     </header>
 
     <main class="container">
-      <!-- Contact Section with Background Image -->
+      <!-- Contact Section with responsive background image -->
       <section id="contact-section" class="contact-section">
         <div class="contact-content">
           <!-- Left: Text content -->
